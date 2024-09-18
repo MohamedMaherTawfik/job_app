@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jobs_app/buisness_logic_layer/cubit/jobs_cubit.dart';
 import 'package:jobs_app/constants/strings.dart';
+import 'package:jobs_app/data/model/jobs_model.dart';
 import 'package:jobs_app/data/repository/jobs_repository.dart';
 import 'package:jobs_app/data/web_services/jobs_web_services.dart';
 import 'package:jobs_app/presentation/screens/job_detail_screen.dart';
@@ -26,7 +27,11 @@ class AppRouter {
                 ));
 
       case JobDetailsScreen:
-        return MaterialPageRoute(builder: (_) => JobDetailScreen());
+        final job = settings.arguments as Job;
+        return MaterialPageRoute(
+            builder: (_) => JobDetailScreen(
+                  job: job,
+                ));
     }
   }
 }

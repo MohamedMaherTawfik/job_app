@@ -16,7 +16,6 @@ class JobsWebServices {
   Future<List<dynamic>> getAllJobs() async {
     try {
       Response response = await dio.get('');
-      print(response.data['jobs']);
       return response.data['jobs'];
     } catch (e) {
       print(e.toString());

@@ -9,7 +9,7 @@ class JobsRepository {
   Future<List<Job>> getAllJobs() async {
     final jobs = await jobsWebServices.getAllJobs();
     return jobs
-        .map((job) => Job.fromjson(job as Map<String, dynamic>))
+        .map((job) => Job.fromJson(job as Map<String, dynamic>))
         .toList();
   }
 }
